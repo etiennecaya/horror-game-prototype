@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23285004996462450}
   - component: {fileID: 2675496446714257185}
   - component: {fileID: 8503652831272695738}
+  - component: {fileID: 7339748475223555303}
   m_Layer: 0
   m_Name: syringe
   m_TagString: Untagged
@@ -107,7 +108,7 @@ Animator:
   m_GameObject: {fileID: 1081244364004278}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cc8951bf7e388fe40b7f093b9608d050, type: 2}
+  m_Controller: {fileID: 9100000, guid: e847c7667050b16479dcb0d63c0eae2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,3 +118,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &7339748475223555303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081244364004278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.73578644, y: 0.08480053, z: 0.29774857}
+  m_Center: {x: -0.1613884, y: 0.0000000018626451, z: 0}

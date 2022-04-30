@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23089077487870424}
   - component: {fileID: 4561869380336595666}
   - component: {fileID: 2098354724555493859}
+  - component: {fileID: 8294350697326378134}
   m_Layer: 0
   m_Name: vial_big_01
   m_TagString: Untagged
@@ -108,7 +109,7 @@ Animator:
   m_GameObject: {fileID: 1280515987804090}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4ae59fa0bf2aa2a4da092a98c16afc55, type: 2}
+  m_Controller: {fileID: 9100000, guid: e847c7667050b16479dcb0d63c0eae2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -118,6 +119,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &8294350697326378134
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280515987804090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.22166443, y: 0.25002432, z: 0.22166443}
+  m_Center: {x: 0, y: 0.12501216, z: 0}
 --- !u!1 &1495165479210182
 GameObject:
   m_ObjectHideFlags: 0

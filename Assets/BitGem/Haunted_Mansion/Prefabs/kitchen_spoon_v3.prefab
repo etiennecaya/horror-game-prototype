@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23883739250369650}
   - component: {fileID: 2133846730785794440}
   - component: {fileID: 6775979553624131441}
+  - component: {fileID: 1238576688090557997}
   m_Layer: 0
   m_Name: kitchen_spoon_v3
   m_TagString: Untagged
@@ -95,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 1781008545225652}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6c3b64384f1f5dd419f25012eeeb3108, type: 2}
+  m_Controller: {fileID: 9100000, guid: e847c7667050b16479dcb0d63c0eae2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,3 +118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e510f9994f719c948b2078cf295db140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1238576688090557997
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781008545225652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6160698, y: 0.112039894, z: 0.32323262}
+  m_Center: {x: -0.49780655, y: 0.044418134, z: -0.000000014901161}

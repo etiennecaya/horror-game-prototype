@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23373850563854116}
   - component: {fileID: 4534216670342522784}
   - component: {fileID: 7545590556569297463}
+  - component: {fileID: 3558400452714630785}
   m_Layer: 0
   m_Name: eye
   m_TagString: Untagged
@@ -107,7 +108,7 @@ Animator:
   m_GameObject: {fileID: 1780826963772794}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 51fa9db38cf9cf4408d8693cf1edde1b, type: 2}
+  m_Controller: {fileID: 9100000, guid: e847c7667050b16479dcb0d63c0eae2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,3 +118,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &3558400452714630785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780826963772794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09045029, y: 0.099999994, z: 0.09510422}
+  m_Center: {x: 0, y: 0, z: -0.0000000018626451}

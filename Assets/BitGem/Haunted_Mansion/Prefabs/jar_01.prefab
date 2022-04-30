@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 23138386079190470}
   - component: {fileID: 6231713368680970828}
   - component: {fileID: 4722514576884863685}
+  - component: {fileID: 3508229441552880494}
   m_Layer: 0
   m_Name: jar_01
   m_TagString: Untagged
@@ -192,7 +193,7 @@ Animator:
   m_GameObject: {fileID: 1566383349064632}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3852dfaed8c366f4cac8f9450e27a1e7, type: 2}
+  m_Controller: {fileID: 9100000, guid: e847c7667050b16479dcb0d63c0eae2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -202,6 +203,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &3508229441552880494
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566383349064632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.39826202, y: 0.27059302, z: 0.39826393}
+  m_Center: {x: 0, y: 0.13529651, z: -0.000000007450581}
 --- !u!1 &1898548343879318
 GameObject:
   m_ObjectHideFlags: 0

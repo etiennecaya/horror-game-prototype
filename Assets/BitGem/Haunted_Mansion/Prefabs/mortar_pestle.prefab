@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23314682133847312}
   - component: {fileID: 8007269282361631342}
   - component: {fileID: 9158326370090491812}
+  - component: {fileID: 5556131617516423316}
   m_Layer: 0
   m_Name: mortar_pestle
   m_TagString: Untagged
@@ -107,7 +108,7 @@ Animator:
   m_GameObject: {fileID: 1443128054536190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cce4c3eb43947114595ac3fb4ca526b8, type: 2}
+  m_Controller: {fileID: 9100000, guid: e847c7667050b16479dcb0d63c0eae2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,3 +118,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &5556131617516423316
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443128054536190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.38927078, y: 0.37953815, z: 0.38927075}
+  m_Center: {x: 0, y: 0.18976907, z: 0.000000014901161}

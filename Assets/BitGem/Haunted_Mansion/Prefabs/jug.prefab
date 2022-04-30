@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 23647887681105546}
   - component: {fileID: 1823274434520245055}
   - component: {fileID: 771754347981226525}
+  - component: {fileID: 1212106181311374337}
   m_Layer: 0
   m_Name: jug
   m_TagString: Untagged
@@ -191,7 +192,7 @@ Animator:
   m_GameObject: {fileID: 1642148619238018}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c15acccacbef7cc49bcccf02d68ea7c2, type: 2}
+  m_Controller: {fileID: 9100000, guid: e847c7667050b16479dcb0d63c0eae2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -201,3 +202,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1212106181311374337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642148619238018}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2725563, y: 0.25643355, z: 0.24674988}
+  m_Center: {x: 0.0000019073486, y: 0.12821677, z: 0}
