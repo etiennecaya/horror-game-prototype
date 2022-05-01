@@ -4,21 +4,21 @@ using UnityEngine.AI;
 
 public class GhostRoamState : GhostBaseState
 {
-    private float roamDistance = 5f;
+    private float _roamDistance = 5f;
 
     public override void EnterState(GhostStateManager manager)
     {
         manager.Ghost.Agent.isStopped = false;
         manager.Ghost.Agent.updateRotation = true;
         manager.Ghost.Animator.SetInteger("State", 1);
-        manager.Ghost.Agent.SetDestination(GetRoamDestination(manager.Ghost.transform, roamDistance));
+        manager.Ghost.Agent.SetDestination(GetRoamDestination(manager.Ghost.transform, _roamDistance));
     }
 
     public override void UpdateState(GhostStateManager manager)
     {
         if (manager.Ghost.Agent.remainingDistance <= manager.Ghost.Agent.stoppingDistance && manager.Ghost.Agent.pathStatus == NavMeshPathStatus.PathComplete)
         {
-            manager.Ghost.Agent.SetDestination(GetRoamDestination(manager.Ghost.transform, roamDistance));
+            manager.Ghost.Agent.SetDestination(GetRoamDestination(manager.Ghost.transform, _roamDistance));
         }
 
         if(manager.Ghost.Target != null)

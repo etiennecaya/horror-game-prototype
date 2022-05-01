@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostVision : MonoBehaviour
+public class GhostHit : MonoBehaviour
 {
     [SerializeField] private Ghost _parent;
 
@@ -10,15 +10,7 @@ public class GhostVision : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _parent.Target = other.gameObject;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _parent.Target = null;
+            _parent.DidLastAttackHit = true;
         }
     }
 }

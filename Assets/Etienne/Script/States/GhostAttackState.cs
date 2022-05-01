@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 public class GhostAttackState : GhostBaseState
 {
-    private float speed = 20f;
+    private float _rotationSpeed = 20f;
     public override void EnterState(GhostStateManager manager)
     {
         manager.Ghost.Agent.isStopped = true;
@@ -23,7 +23,7 @@ public class GhostAttackState : GhostBaseState
             Vector3 lookPos = targetPos - ghostPos;
             lookPos.y = 0;
             Quaternion rotation = Quaternion.LookRotation(lookPos);
-            manager.Ghost.transform.rotation = Quaternion.Slerp(manager.Ghost.transform.rotation, rotation, speed * Time.deltaTime);
+            manager.Ghost.transform.rotation = Quaternion.Slerp(manager.Ghost.transform.rotation, rotation, _rotationSpeed * Time.deltaTime);
         }
 
 
@@ -36,7 +36,12 @@ public class GhostAttackState : GhostBaseState
         //if Player is still visible
         if (manager.Ghost.Target != null)
         {
-            if(Vector3.Distance(targetPos, ghostPos) > manager.Ghost.AttackDistance)
+            if(manager.Ghost.DidLastAttackHit)
+            {
+                manager.Ghost.DidLastAttackHit = false;
+                manager.SwitchState(manager.TeleportState);
+            }
+            else if(Vector3.Distance(targetPos, ghostPos) > manager.Ghost.AttackDistance)
             {
                 manager.SwitchState(manager.FollowState);
             }
