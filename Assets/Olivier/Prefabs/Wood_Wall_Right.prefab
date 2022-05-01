@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1211061372224642304}
   m_Layer: 0
-  m_Name: Wood_Wall
+  m_Name: Wood_Wall_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
