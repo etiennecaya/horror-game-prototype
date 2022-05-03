@@ -14,18 +14,18 @@ public class Ghost : MonoBehaviour
     [NonSerialized] public NavMeshAgent Agent;
     [NonSerialized] public GameObject Target;
     [NonSerialized] public Animator Animator;
-    public GhostStateManager StateManager;
+    private GhostStateManager _stateManager;
 
     private void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
-        StateManager = new GhostStateManager(this);
+        _stateManager = new GhostStateManager(this);
         OriginalPosition = transform.position;
     }
 
     private void Update()
     {
-        StateManager.Update();
+        _stateManager.Update();
     }
 }
