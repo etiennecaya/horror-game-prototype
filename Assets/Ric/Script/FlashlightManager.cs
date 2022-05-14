@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlashlightManager : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class FlashlightManager : MonoBehaviour
    public int MaxBattery = 1;
    public float CurrentTime = 1f;
    public bool CountDown = false;
+   [Header ("Health Variables")]
+   public int PlayerCurrentHealth = 1;
+   public int PlayerMaxHealth = 1;
+
+   [Header("UI Elements")]
+   [SerializeField] private Image[] _hearts;
+   [SerializeField] private Sprite _fullHeart;
+   [SerializeField] private Sprite _emptyHeart;
    
    private void Awake() 
     {
@@ -22,6 +31,13 @@ public class FlashlightManager : MonoBehaviour
         {
             Instance = this;
         }
+        _audiosource = GetComponent<AudioSource>();
+    }
+
+    private void Start() 
+    {
+        PlayerCurrentHealth = PlayerMaxHealth;
+        UpdateHealth();
     }
 
     public void PlayFlashlightSound()
@@ -37,5 +53,32 @@ public class FlashlightManager : MonoBehaviour
     private void Update() 
     {
         CurrentTime = CountDown ? CurrentTime -= Time.deltaTime : CurrentTime += Time.deltaTime;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        PlayerCurrentHealth -= amount;
+        UpdateHealth();
+    }
+    
+
+    public void UpdateHealth()
+    {
+        for (int i = 0; i < _hearts.Length; i++)
+        {
+            if (i < PlayerCurrentHealth)
+            {
+                _hearts[i].sprite = _fullHeart;
+            }
+            else 
+            {
+                _hearts[i].sprite = _emptyHeart;
+            }
+        }
+        if (PlayerCurrentHealth <= 0)
+        {
+            PlayerCurrentHealth = 0;
+            //LoadYouDiedMenu();
+        }
     }
 }

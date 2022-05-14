@@ -14,33 +14,31 @@ public class CollectibleUiandObject : MonoBehaviour
     [SerializeField] private GameObject _heartOne;
     [SerializeField] private GameObject _heartTwo;
     [SerializeField] private GameObject _heartThree;
-    private int Health = 3;
+    public int Health = 3;
     private bool _isHurt = false;
 
     [Header("Battery")]
-    [SerializeField]
-    private float _maximumBattery;
+    [SerializeField] private float _maximumBattery;
     public bool FlashlightIsOn;
     private float _batteryPile = 60f;
-    [SerializeField] 
-    private GameObject[] _lesBatteries;
-    [SerializeField]
-    private GameObject _leGameObjectQuiDisparraitQuandYaPuDeBatteries;
-    [SerializeField]
-    private GameObject _laLumiereDansLeUI;
+    [SerializeField] private GameObject[] _lesBatteries;
+    [SerializeField] private GameObject _leGameObjectQuiDisparraitQuandYaPuDeBatteries;
+    [SerializeField] private GameObject _laLumiereDansLeUI;
 
 
     [Header("Respawn")]
     private Vector3 _lastCheckpoint;
+
+    // Needs to be a list 
     private GameObject[] _lesObjetsARespawnQuandOnMeurt;
 
 
 
     void Start()
     {
-        _batteryPile = _maximumBattery;
-       // ActivateBatteries();
-       // _audioSource = gameObject.GetComponent<AudioSource>();
+        // needs to be changed, because this will overwrite the player's batterylevel after respawn???
+       _batteryPile = _maximumBattery;
+       _audioSource = gameObject.GetComponent<AudioSource>();
     }
     
  
@@ -156,7 +154,7 @@ public class CollectibleUiandObject : MonoBehaviour
     {
         _batteryPile = _maximumBattery;
         Health = 3;
-        this.transform.position = _lastCheckpoint; //pas testé encore
+        this.transform.position = _lastCheckpoint; //pas testï¿½ encore
         //ETIENNE HELP ME faire rapparaitre les trucs :D
     }
     private void OnTriggerEnter (Collider other)
