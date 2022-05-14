@@ -20,11 +20,15 @@ public class CollectibleUiandObject : MonoBehaviour
     [Header("Battery")]
     [SerializeField]
     private float _maximumBattery;
+    public bool FlashlightIsOn;
     private float _batteryPile = 60f;
     [SerializeField] 
     private GameObject[] _lesBatteries;
     [SerializeField]
     private GameObject _leGameObjectQuiDisparraitQuandYaPuDeBatteries;
+    [SerializeField]
+    private GameObject _laLumiereDansLeUI;
+
 
     [Header("Respawn")]
     private Vector3 _lastCheckpoint;
@@ -46,10 +50,7 @@ public class CollectibleUiandObject : MonoBehaviour
         EverythingBattery();
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
+   
     void EverythingHealth()
     {
         //************Hearts in the UI
@@ -90,7 +91,11 @@ public class CollectibleUiandObject : MonoBehaviour
 
     void EverythingBattery()
     {
-        _batteryPile = _batteryPile - Time.deltaTime;
+        if (FlashlightIsOn)
+        {
+            _laLumiereDansLeUI.SetActive(true);
+            _batteryPile = _batteryPile - Time.deltaTime;
+        } else { _laLumiereDansLeUI.SetActive(false); }
         if (_leGameObjectQuiDisparraitQuandYaPuDeBatteries)
         {
             if (_batteryPile <= 0)
