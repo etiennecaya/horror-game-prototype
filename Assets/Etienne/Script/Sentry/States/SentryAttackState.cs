@@ -17,5 +17,7 @@ public class SentryAttackState : SentryBaseState
         {
             return;
         }
+        manager.Sentry.Target = null;
+        manager.SwitchState(manager.PatrolState);
     }
 }
