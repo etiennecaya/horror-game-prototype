@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8226369295531136331}
   - component: {fileID: 5009749769042483950}
   - component: {fileID: 7089443815388327460}
+  - component: {fileID: -4917191778876887202}
   m_Layer: 0
   m_Name: Battery_Low
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-4917191778876887202
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746623685963550705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4821300124380478740, guid: 76c77293273298d42b6bbba2b7125c95, type: 3}
