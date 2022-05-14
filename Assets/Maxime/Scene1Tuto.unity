@@ -14729,7 +14729,7 @@ GameObject:
   - component: {fileID: 430902551}
   - component: {fileID: 430902550}
   m_Layer: 0
-  m_Name: Point light 12 (1)
+  m_Name: Point light Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14742,13 +14742,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430902548}
-  m_LocalRotation: {x: 0.19319275, y: 0.69593894, z: 0.20172937, w: 0.66155183}
-  m_LocalPosition: {x: 2.771, y: -1.125, z: 1.947}
+  m_LocalRotation: {x: 0.00603628, y: -0.024315381, z: -0.27925208, w: -0.95989096}
+  m_LocalPosition: {x: 12.87501, y: 4.627, z: -24.78602}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1043422486}
-  m_RootOrder: 2
+  m_Father: {fileID: 1895930075}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &430902550
 MonoBehaviour:
@@ -34228,7 +34228,7 @@ PrefabInstance:
     - target: {fileID: 6284691582151418206, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
       propertyPath: m_Name
-      value: SM_Prop_Torch_Ornate_02
+      value: SM_Prop_Torch_Ornate_02_Right
       objectReference: {fileID: 0}
     - target: {fileID: 6284691582591681042, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
@@ -48793,7 +48793,7 @@ PrefabInstance:
     - target: {fileID: 6284691582151159778, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6284691582151159778, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
@@ -48848,7 +48848,7 @@ PrefabInstance:
     - target: {fileID: 6284691582151418206, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
       propertyPath: m_Name
-      value: SM_Prop_Torch_Ornate_02 (1)
+      value: SM_Prop_Torch_Ornate_02_Left
       objectReference: {fileID: 0}
     - target: {fileID: 6284691582591681042, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
@@ -59854,7 +59854,7 @@ PrefabInstance:
     - target: {fileID: 6284691582151159778, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6284691582151159778, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
@@ -59909,7 +59909,7 @@ PrefabInstance:
     - target: {fileID: 6284691582151418206, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
       propertyPath: m_Name
-      value: SM_Prop_Torch_Ornate_02 (2)
+      value: SM_Prop_Torch_Ornate_02_Right
       objectReference: {fileID: 0}
     - target: {fileID: 6284691582591681042, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
@@ -61130,9 +61130,10 @@ Transform:
   - {fileID: 2034002475}
   - {fileID: 2101019419}
   - {fileID: 1043422486}
-  - {fileID: 1591675239}
   - {fileID: 1863778167}
+  - {fileID: 1591675239}
   - {fileID: 2110901850}
+  - {fileID: 430902549}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -66305,7 +66306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2101019419
 Transform:
   m_ObjectHideFlags: 0
@@ -66783,7 +66784,7 @@ PrefabInstance:
     - target: {fileID: 6284691582151418206, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
       propertyPath: m_Name
-      value: SM_Prop_Torch_Ornate_02 (3)
+      value: SM_Prop_Torch_Ornate_02_Left2
       objectReference: {fileID: 0}
     - target: {fileID: 6284691582591681042, guid: d93bff7f14b3a3645ba41be873a8a711,
         type: 3}
