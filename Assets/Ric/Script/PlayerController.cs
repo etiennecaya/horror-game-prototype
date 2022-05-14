@@ -56,19 +56,25 @@ public class PlayerController : MonoBehaviour
 
     private void  HandleMovement()
     {
+        Vector3 nextMoveDirection = _rawInputMovement;
+        if (_characterRotates)
+        {
+            nextMoveDirection = new Vector3(0, 0, _rawInputMovement.z);
+        }
+
         if(_running)
         {
-            _characterController.Move(transform.TransformDirection(_rawInputMovement) * _runningspeed * Time.deltaTime);
+            _characterController.Move(transform.TransformDirection(nextMoveDirection) * _runningspeed * Time.deltaTime);
         }
         else
         {
-            _characterController.Move(transform.TransformDirection(_rawInputMovement) * _moveSpeed * Time.deltaTime);
+            _characterController.Move(transform.TransformDirection(nextMoveDirection) * _moveSpeed * Time.deltaTime);
         }
     }
 
     private void HandleRotation()
     {
-        _characterController.transform.Rotate(Vector3.up * _rawInputMovement.x *_rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up * _rawInputMovement.x *_rotationSpeed * Time.deltaTime);
     }
 
     private void OnEnable() 
