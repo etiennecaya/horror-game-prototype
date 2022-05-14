@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
         _input.PlayerControls.Movement.started += OnMovement;
         _input.PlayerControls.Movement.performed += OnMovement;
         _input.PlayerControls.Movement.canceled += OnMovement;
+        _input.PlayerControls.ToggleFlashLight.started += OnToggleFlashLight;
+
 
     }
 
