@@ -24,6 +24,7 @@ public class MainMenuManager : MonoBehaviour
         _audioSource.Play();
         MainMenuCanvas.SetActive(false);
         FlashLightManager.SetActive(true);
+        CameraManager.Instance.ActivateGamePlayCamera();
    }
    public void ExitGame()
    {
