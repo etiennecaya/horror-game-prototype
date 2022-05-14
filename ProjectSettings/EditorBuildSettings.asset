@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Maxime/Intro Scene Main Menu.unity
+    guid: 51907b8bee5687341aae3b566fb79742
   m_configObjects: {}
