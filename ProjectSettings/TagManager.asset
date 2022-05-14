@@ -8,6 +8,7 @@ TagManager:
   - GhostHardDetect
   - Battery
   - Health
+  - Enemy
   layers:
   - Default
   - TransparentFX
