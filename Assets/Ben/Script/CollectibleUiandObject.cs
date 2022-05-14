@@ -91,16 +91,21 @@ public class CollectibleUiandObject : MonoBehaviour
 
     void EverythingBattery()
     {
-        if (FlashlightIsOn)
+        if (_leGameObjectQuiDisparraitQuandYaPuDeBatteries)
+        {
+            if ((FlashlightIsOn)&& _batteryPile > 0)
         {
             _laLumiereDansLeUI.SetActive(true);
             _batteryPile = _batteryPile - Time.deltaTime;
-        } else { _laLumiereDansLeUI.SetActive(false); }
-        if (_leGameObjectQuiDisparraitQuandYaPuDeBatteries)
-        {
+            _leGameObjectQuiDisparraitQuandYaPuDeBatteries.SetActive(true);
+        } else { 
+            _laLumiereDansLeUI.SetActive(false);
+            _leGameObjectQuiDisparraitQuandYaPuDeBatteries.SetActive(false);
+        }
+        
             if (_batteryPile <= 0)
             {
-                _leGameObjectQuiDisparraitQuandYaPuDeBatteries.SetActive(false);
+                FlashlightIsOn = false;
             }
             else
             {
