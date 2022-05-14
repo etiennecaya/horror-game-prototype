@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class CollectibleUiandObject : MonoBehaviour
 {
-    private int _amountOfKeys;
-    [SerializeField] private TextMeshProUGUI _leNombreDeCles;
     //public PlayerCharacter ThePlayer;
     [Header("Sounds")]
     [SerializeField]private AudioClip[] audioClipArray;
@@ -19,23 +17,28 @@ public class CollectibleUiandObject : MonoBehaviour
     [SerializeField] private GameObject _heartThree;
     private int Health = 3;
     private bool _isHurt = false;
-    [Header("End")]
-    [SerializeField] private GameObject _endThings;
-    [SerializeField] private TextMeshProUGUI _endText;
-    [SerializeField] private GameObject _lesLocks;
+
+    [Header("Battery")]
+    public float _batteryPile = 60f;
 
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        _audioSource = gameObject.GetComponent<AudioSource>();
-        _endThings.SetActive(false);
-        _lesLocks.SetActive(false);
+       // _audioSource = gameObject.GetComponent<AudioSource>();
     }
     
-    // Update is called once per frame
+ 
     void Update()
+    {
+        EverythingHealth();
+    }
+
+    private void FixedUpdate()
+    {
+        EverythingBattery();
+    }
+    void EverythingHealth()
     {
         //************Hearts in the UI
         if (Health >= 1)
@@ -51,37 +54,35 @@ public class CollectibleUiandObject : MonoBehaviour
                     {
                         Health = 3;
                     }
-                } else 
-                {
-                    _heartThree.SetActive(false); 
                 }
-            } else 
+                else
+                {
+                    _heartThree.SetActive(false);
+                }
+            }
+            else
             {
-                _heartTwo.SetActive(false); 
+                _heartTwo.SetActive(false);
             }
         }
-        else { _heartOne.SetActive(false); 
+        else
+        {
+            _heartOne.SetActive(false);
         }
         //************End Sequence
         if (Health < 1)
         {
-            _endThings.SetActive(true);
-            _endText.text = ("YOU DIED!\n Respawning...");
-            StartCoroutine(Respawning());
+            ////bla bla bla checkpoint
         }
-        if (_amountOfKeys >= 5)
-        {
-            _endThings.SetActive(true);
-            _lesLocks.SetActive(true);
-            _endText.text = ("YOU WON! \n Thanks for playing! \n Respawning... ");
-            StartCoroutine(Respawning());
-        }
-        //************Key Text
-        _leNombreDeCles.text = (_amountOfKeys + "/5");
     }
-    private void OnTriggerEnter2D (Collider2D other)
+
+    void EverythingBattery()
     {
-        if (other.gameObject.tag == "Bullet" && !_isHurt)
+        _batteryPile = _batteryPile - Time.deltaTime;
+    }
+    private void OnTriggerEnter (Collider other)
+    {
+        /*if (other.gameObject.tag == "Ghost" && !_isHurt)
         {
             _isHurt = true;
             StartCoroutine(Aouch());
@@ -90,31 +91,22 @@ public class CollectibleUiandObject : MonoBehaviour
             _audioSource.clip = audioClipArray[0];
             _audioSource.PlayOneShot(_audioSource.clip);
             _audioSource.Play();
-        }
+        }*/
         if (other.gameObject.tag == "Health")
         {
             Health = Health + 1;
             Debug.Log("Toucher au firstaid");
             Destroy(other.gameObject);
-            _audioSource.clip = audioClipArray[2];
+           /* _audioSource.clip = audioClipArray[2];
             _audioSource.PlayOneShot(_audioSource.clip);
-            _audioSource.Play();
-        }
-        if (other.gameObject.tag == "Key")
-        {
-            _amountOfKeys++;
-            Destroy(other.gameObject);
-            _audioSource.clip = audioClipArray[1];
-            _audioSource.PlayOneShot(_audioSource.clip);
-            _audioSource.Play();
+            _audioSource.Play();*/
         }
         if (other.gameObject.tag == "PowerUp")
         {
-          //  ThePlayer.JumpForce = ThePlayer.JumpForce * 1.2f ;
             Destroy(other.gameObject);
-            _audioSource.clip = audioClipArray[3];
+           /* _audioSource.clip = audioClipArray[3];
             _audioSource.PlayOneShot(_audioSource.clip);
-            _audioSource.Play();
+            _audioSource.Play();*/
         }
     }
     IEnumerator Aouch()
