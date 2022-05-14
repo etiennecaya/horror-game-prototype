@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 1f;
     [SerializeField] private bool _characterRotates = false;
     public bool FlashLightOn = false;
-    public bool Running = false;
+    private bool _running = false;
 
     private void Awake() 
     {
@@ -49,12 +49,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnRun(InputAction.CallbackContext context)
     {
-        Running = context.ReadValueAsButton();
+        _running = context.ReadValueAsButton();
     }
 
     private void  HandleMovement()
     {
-        if(Running)
+        if(_running)
         {
             _characterController.Move(transform.TransformDirection(_rawInputMovement) * _runningspeed * Time.deltaTime);
         }
