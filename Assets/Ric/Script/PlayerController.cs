@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _moveSpeed = 1f;
     [SerializeField] private float _runningspeed = 1f;
     [SerializeField] private float _rotationSpeed = 1f;
+    [SerializeField] private float _groundedGravity = -0.5f;
+    [SerializeField] private float _gravity = -9.8f;
+
+
     [SerializeField] private bool _characterRotates = false;
     public bool FlashLightOn = false;
     private bool _running = false;
@@ -36,6 +40,7 @@ public class PlayerController : MonoBehaviour
             HandleRotation(); 
         }
         HandleMovement();
+        HandleGravity();
     }
 
     private void OnMovement(InputAction.CallbackContext context)
@@ -48,7 +53,9 @@ public class PlayerController : MonoBehaviour
     private void OnToggleFlashLight(InputAction.CallbackContext context)
     {
        FlashLightOn = !FlashLightOn;
-       TurnFlashLightOn();
+       {
+           TurnFlashLightOn();
+       }       
     }
 
     private void OnRun(InputAction.CallbackContext context)
@@ -72,7 +79,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(_rawInputMovement != Vector3.zero)
+        if(_rawInputMovement != new Vector3(0,_rawInputMovement.y,0))
         {
             _animator.SetInteger("State", 1);
         }
@@ -96,6 +103,18 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * _rawInputMovement.x *_rotationSpeed * Time.deltaTime);
     }
 
+    private void HandleGravity()
+    {
+        if (_characterController.isGrounded)
+        {
+            _rawInputMovement.y = _groundedGravity;
+        }
+        else
+        {
+            _rawInputMovement.y = _gravity * Time.deltaTime;
+        }
+    }
+
     private void OnEnable() 
     {
         _input.PlayerControls.Enable();
@@ -109,11 +128,11 @@ public class PlayerController : MonoBehaviour
     {
         if (FlashLightOn)
         {
-            FlashlightManager.Instance.LightCone.SetActive(true);
+            GameManager.Instance.LightCone.SetActive(true);
         }
         else
         {
-            FlashlightManager.Instance.LightCone.SetActive(false);
+            GameManager.Instance.LightCone.SetActive(false);
         }
     }
 

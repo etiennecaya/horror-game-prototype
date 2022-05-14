@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class FlashlightManager : MonoBehaviour
 {
    public static FlashlightManager Instance;
-   public GameObject LightCone = null;
    private AudioSource _audiosource = null;
    public int Battery = 1;
    public int MaxBattery = 1;

@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Maxime/Intro Scene Main Menu.unity
-    guid: 51907b8bee5687341aae3b566fb79742
+    path: Assets/Maxime/Scene1Tuto.unity
+    guid: cf38c16e71e415a408831ec5e724c2e9
   m_configObjects: {}
