@@ -24,8 +24,6 @@ public class PlayerController : MonoBehaviour
         _input.PlayerControls.Movement.performed += OnMovement;
         _input.PlayerControls.Movement.canceled += OnMovement;
         _input.PlayerControls.ToggleFlashLight.started += OnToggleFlashLight;
-
-
     }
 
     private void Update() 
@@ -46,7 +44,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnToggleFlashLight(InputAction.CallbackContext context)
     {
-       FlashLightOn = context.control.IsPressed();
+       FlashLightOn = !FlashLightOn;
+       TurnFlashLightOn();
     }
 
     private void OnRun(InputAction.CallbackContext context)
@@ -78,6 +77,18 @@ public class PlayerController : MonoBehaviour
     private void OnDisable() 
     {
         _input.PlayerControls.Disable();
+    }
+
+    private void TurnFlashLightOn()
+    {
+        if (FlashLightOn)
+        {
+            FlashlightManager.Instance.LightCone.SetActive(true);
+        }
+        else
+        {
+            FlashlightManager.Instance.LightCone.SetActive(false);
+        }
     }
 
     // IN CASE WE NEED TO SWTICH ACTION MAPS
