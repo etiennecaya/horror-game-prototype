@@ -9,6 +9,7 @@ TagManager:
   - Battery
   - Health
   - Enemy
+  - FlashLightCone
   layers:
   - Default
   - TransparentFX

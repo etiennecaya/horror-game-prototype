@@ -10,6 +10,7 @@ public class Ghost : MonoBehaviour
     public float AttackDistance;
 
     [NonSerialized] public bool DidLastAttackHit;
+    [NonSerialized] public bool IsAttacked;
     [NonSerialized] public Vector3 OriginalPosition;
     [NonSerialized] public NavMeshAgent Agent;
     [NonSerialized] public GameObject Target;

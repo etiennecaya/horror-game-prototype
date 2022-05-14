@@ -5,8 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
+
     private PlayerInput _input;
     private CharacterController _characterController;
+
     private Vector3 _rawInputMovement;
     [SerializeField] private float _moveSpeed = 1f;
     [SerializeField] private float _runningspeed = 1f;
@@ -59,6 +62,23 @@ public class PlayerController : MonoBehaviour
         if (_characterRotates)
         {
             nextMoveDirection = new Vector3(0, 0, _rawInputMovement.z);
+            if(nextMoveDirection.z < 0)
+            {
+                _animator.SetBool("Forward", false);
+            }
+            else
+            {
+                _animator.SetBool("Forward", true);
+            }
+        }
+
+        if(_rawInputMovement != Vector3.zero)
+        {
+            _animator.SetInteger("State", 1);
+        }
+        else
+        {
+            _animator.SetInteger("State", 0);
         }
 
         if(_running)

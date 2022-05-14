@@ -10,6 +10,7 @@ public class GhostStateManager
     public GhostIdleState IdleState = new GhostIdleState();
     public GhostRoamState RoamState = new GhostRoamState();
     public GhostFollowState FollowState = new GhostFollowState();
+    public GhostPanicState PanicState = new GhostPanicState();
     public GhostAttackState AttackState = new GhostAttackState();
     public GhostTeleportState TeleportState = new GhostTeleportState();
     public GhostDefeatState DefeatState = new GhostDefeatState();
