@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public class CollectibleUiandObject : MonoBehaviour
 {
     //public PlayerCharacter ThePlayer;
     [Header("Sounds")]
-    [SerializeField]private AudioClip[] audioClipArray;
+   // [SerializeField]private AudioClip[] audioClipArray;
     private AudioSource _audioSource;
 
     [Header("Health")]
@@ -19,12 +18,24 @@ public class CollectibleUiandObject : MonoBehaviour
     private bool _isHurt = false;
 
     [Header("Battery")]
-    public float _batteryPile = 60f;
+    [SerializeField]
+    private float _maximumBattery;
+    private float _batteryPile = 60f;
+    [SerializeField] 
+    private GameObject[] _lesBatteries;
+    [SerializeField]
+    private GameObject _leGameObjectQuiDisparraitQuandYaPuDeBatteries;
+
+    [Header("Respawn")]
+    private Vector3 _lastCheckpoint;
+    private GameObject[] _lesObjetsARespawnQuandOnMeurt;
 
 
 
     void Start()
     {
+        _batteryPile = _maximumBattery;
+       // ActivateBatteries();
        // _audioSource = gameObject.GetComponent<AudioSource>();
     }
     
@@ -32,11 +43,12 @@ public class CollectibleUiandObject : MonoBehaviour
     void Update()
     {
         EverythingHealth();
+        EverythingBattery();
     }
 
     private void FixedUpdate()
     {
-        EverythingBattery();
+        
     }
     void EverythingHealth()
     {
@@ -72,17 +84,74 @@ public class CollectibleUiandObject : MonoBehaviour
         //************End Sequence
         if (Health < 1)
         {
-            ////bla bla bla checkpoint
+            Respawn();
         }
     }
 
     void EverythingBattery()
     {
         _batteryPile = _batteryPile - Time.deltaTime;
+        if (_leGameObjectQuiDisparraitQuandYaPuDeBatteries)
+        {
+            if (_batteryPile <= 0)
+            {
+                _leGameObjectQuiDisparraitQuandYaPuDeBatteries.SetActive(false);
+            }
+            else
+            {
+                if (_batteryPile > 0)
+                {
+                    _lesBatteries[0].SetActive(true);
+                }
+                else
+                {
+                    _lesBatteries[0].SetActive(false);
+                }
+                if (_batteryPile >= (_maximumBattery * 0.2f))
+                {
+                    _lesBatteries[1].SetActive(true);
+                }
+                else
+                {
+                    _lesBatteries[1].SetActive(false);
+                }
+                if (_batteryPile >= (_maximumBattery * 0.4f))
+                {
+                    _lesBatteries[2].SetActive(true);
+                }
+                else
+                {
+                    _lesBatteries[2].SetActive(false);
+                }
+                if (_batteryPile >= (_maximumBattery * 0.6f))
+                {
+                    _lesBatteries[3].SetActive(true);
+                }
+                else
+                {
+                    _lesBatteries[3].SetActive(false);
+                }
+                if (_batteryPile >= (_maximumBattery * 0.8f))
+                {
+                    _lesBatteries[4].SetActive(true);
+                }
+                else
+                {
+                    _lesBatteries[4].SetActive(false);
+                }
+            }
+        }
+    }
+    void Respawn()
+    {
+        _batteryPile = _maximumBattery;
+        Health = 3;
+        this.transform.position = _lastCheckpoint; //pas testé encore
+        //ETIENNE HELP ME faire rapparaitre les trucs :D
     }
     private void OnTriggerEnter (Collider other)
     {
-        /*if (other.gameObject.tag == "Ghost" && !_isHurt)
+        /*if (other.gameObject.CompareTag("Ghost") && !_isHurt)
         {
             _isHurt = true;
             StartCoroutine(Aouch());
@@ -92,21 +161,29 @@ public class CollectibleUiandObject : MonoBehaviour
             _audioSource.PlayOneShot(_audioSource.clip);
             _audioSource.Play();
         }*/
-        if (other.gameObject.tag == "Health")
+        if (other.gameObject.CompareTag("Health"))
         {
             Health = Health + 1;
-            Debug.Log("Toucher au firstaid");
-            Destroy(other.gameObject);
-           /* _audioSource.clip = audioClipArray[2];
-            _audioSource.PlayOneShot(_audioSource.clip);
-            _audioSource.Play();*/
+            other.gameObject.SetActive(false);
+            /* _audioSource.clip = audioClipArray[2];
+             _audioSource.PlayOneShot(_audioSource.clip);
+             _audioSource.Play();*/
         }
-        if (other.gameObject.tag == "PowerUp")
+        if (other.gameObject.CompareTag("Battery"))
         {
-            Destroy(other.gameObject);
+            _batteryPile = _maximumBattery;
+            other.gameObject.SetActive(false);
            /* _audioSource.clip = audioClipArray[3];
             _audioSource.PlayOneShot(_audioSource.clip);
             _audioSource.Play();*/
+        }
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            _lastCheckpoint = other.transform.position;
+            
+            /* _audioSource.clip = audioClipArray[3];
+             _audioSource.PlayOneShot(_audioSource.clip);
+             _audioSource.Play();*/
         }
     }
     IEnumerator Aouch()
@@ -115,9 +192,5 @@ public class CollectibleUiandObject : MonoBehaviour
         _isHurt = false;
     }
 
-    IEnumerator Respawning()
-    {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0);
-    }
+    
 }
