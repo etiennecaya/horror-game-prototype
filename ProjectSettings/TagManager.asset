@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GhostSoftDetect
   - GhostHardDetect
+  - Battery
   layers:
   - Default
   - TransparentFX
