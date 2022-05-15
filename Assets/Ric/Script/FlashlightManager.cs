@@ -8,6 +8,7 @@ public class FlashlightManager : MonoBehaviour
    public static FlashlightManager Instance;
    public PlayerController PlayerController = null;
    private AudioSource _audiosource = null;
+   [SerializeField] private CheckPointAndRespawn _leRespawn;
 
    [Header ("Battery Variables")]
    public Image BatteryBar = null;
@@ -19,8 +20,6 @@ public class FlashlightManager : MonoBehaviour
    [Header ("Health Variables")]
    public int PlayerCurrentHealth = 1;
    public int PlayerMaxHealth = 1;
-   [SerializeField]
-   private CheckPointAndRespawn _leRespawn;
 
    [Header("UI Elements")]
    [SerializeField] private Image[] _hearts;
@@ -59,7 +58,6 @@ public class FlashlightManager : MonoBehaviour
         BatteryDrainOverTime();
         BatteryBarFiller();        
         ColorChanger();
-        UpdateHealth();
     }
 
     private void BatteryBarFiller()
@@ -109,7 +107,6 @@ public class FlashlightManager : MonoBehaviour
         if (PlayerCurrentHealth <= 0)
         {
             PlayerCurrentHealth = 0;
-            //LoadYouDiedMenu();
             _leRespawn.Respawn();
         }
     }

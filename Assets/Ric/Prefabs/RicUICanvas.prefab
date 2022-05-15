@@ -159,10 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d132331db0171b4997460870a0b9e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerController: {fileID: 0}
+  PlayerController: {fileID: 7087622628521795897, guid: 02010da4cceb04c49833ad0c781c5f3f,
+    type: 3}
+  _leRespawn: {fileID: 0}
   BatteryBar: {fileID: 2321057390981621353}
-  _currentBattery: 1
-  _MaxBattery: 100
   BatteryDrainer: 1
   LerpSpeed: 3
   PlayerCurrentHealth: 3
