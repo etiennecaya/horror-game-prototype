@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Maxime/Scene1Tuto.unity
     guid: cf38c16e71e415a408831ec5e724c2e9
+  - enabled: 1
+    path: Assets/Olivier/Scenes/OlivierTestScene.unity
+    guid: f3bae3c920db6cc4fad2bb4b9de07f5d
   m_configObjects: {}

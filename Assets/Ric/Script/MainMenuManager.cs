@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public GameObject FlashLightManager = null;
+    //public GameObject RicUiCanvas = null;
     public GameObject MainMenuCanvas = null;
     public PlayerController PlayerController = null;
     private AudioSource _audioSource;
@@ -16,6 +16,12 @@ public class MainMenuManager : MonoBehaviour
     {
         _audioSource = GetComponent<AudioSource>();
     }
+
+    private void Start() 
+    {
+        _audioSource.clip = _mainMenuMusic;
+        _audioSource.Play();
+    }
     
    public void StartGame()
    {
@@ -24,7 +30,7 @@ public class MainMenuManager : MonoBehaviour
         _audioSource.clip = _gameplayMusic;
         _audioSource.Play();
         MainMenuCanvas.SetActive(false);
-        FlashLightManager.SetActive(true);
+        //RicUiCanvas.SetActive(true);
         CameraManager.Instance.ActivateGamePlayCamera();
         StartCoroutine(ActivePlayerController());
    }

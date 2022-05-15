@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class FlashlightManager : MonoBehaviour
 {
    public static FlashlightManager Instance;
+   public PlayerController PlayerController = null;
    private AudioSource _audiosource = null;
    public int Battery = 1;
    public int MaxBattery = 1;
-   public float CurrentTime = 1f;
-   public bool CountDown = false;
+   //public float CurrentTime = 1f;
+   //public bool CountDown = false;
    [Header ("Health Variables")]
    public int PlayerCurrentHealth = 1;
    public int PlayerMaxHealth = 1;
@@ -36,6 +37,7 @@ public class FlashlightManager : MonoBehaviour
     private void Start() 
     {
         PlayerCurrentHealth = PlayerMaxHealth;
+        PlayerController.ActivateInputs();
         UpdateHealth();
     }
 
@@ -51,7 +53,7 @@ public class FlashlightManager : MonoBehaviour
 
     private void Update() 
     {
-        CurrentTime = CountDown ? CurrentTime -= Time.deltaTime : CurrentTime += Time.deltaTime;
+        //CurrentTime = CountDown ? CurrentTime -= Time.deltaTime : CurrentTime += Time.deltaTime;
     }
 
     public void TakeDamage(int amount)
