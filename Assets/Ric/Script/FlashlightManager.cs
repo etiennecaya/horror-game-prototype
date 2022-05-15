@@ -11,8 +11,8 @@ public class FlashlightManager : MonoBehaviour
 
    [Header ("Battery Variables")]
    public Image BatteryBar = null;
-   [SerializeField]private float _currentBattery = 1;
-   [SerializeField]private float _MaxBattery = 100;
+   [System.NonSerialized]public float _currentBattery = 1;
+   [System.NonSerialized]public float _MaxBattery = 100;
    [Range (0.1f,1)]
    public float BatteryDrainer = 1;
    public float LerpSpeed;
@@ -50,7 +50,6 @@ public class FlashlightManager : MonoBehaviour
     {
         _audiosource.Play();
     }
-
 
     private void Update() 
     {
