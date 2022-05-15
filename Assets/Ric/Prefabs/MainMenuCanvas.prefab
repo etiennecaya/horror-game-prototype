@@ -1139,6 +1139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashLightManager: {fileID: 2339901987411902911}
   MainMenuCanvas: {fileID: 3208950962951082754}
+  PlayerController: {fileID: 0}
   _mainMenuMusic: {fileID: 8300000, guid: 00b1abc8d0bec9c4988f603d974d660c, type: 3}
   _gameplayMusic: {fileID: 8300000, guid: c98e3aa25508b2d41805b0feaeb85e08, type: 3}
 --- !u!82 &6920895177964596589
@@ -1153,7 +1154,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 00b1abc8d0bec9c4988f603d974d660c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0

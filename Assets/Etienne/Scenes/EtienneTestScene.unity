@@ -1631,6 +1631,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7087622628521795897, guid: 02010da4cceb04c49833ad0c781c5f3f,
+        type: 3}
+      propertyPath: _characterRotates
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7087622628521795898, guid: 02010da4cceb04c49833ad0c781c5f3f,
         type: 3}
       propertyPath: m_SkinWidth

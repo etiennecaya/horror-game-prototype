@@ -79,23 +79,21 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(_rawInputMovement != new Vector3(0,_rawInputMovement.y,0))
+        nextMoveDirection = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0) * nextMoveDirection;
+        if (_rawInputMovement != new Vector3(0,_rawInputMovement.y,0))
         {
             _animator.SetInteger("State", 1);
+            Vector3 lookAtDirection = transform.position + nextMoveDirection;
+            lookAtDirection.y = transform.position.y;
+            transform.LookAt(lookAtDirection);
         }
         else
         {
             _animator.SetInteger("State", 0);
         }
 
-        if(_running)
-        {
-            _characterController.Move(transform.TransformDirection(nextMoveDirection) * _runningspeed * Time.deltaTime);
-        }
-        else
-        {
-            _characterController.Move(transform.TransformDirection(nextMoveDirection) * _moveSpeed * Time.deltaTime);
-        }
+
+        _characterController.Move(nextMoveDirection * _moveSpeed * Time.deltaTime);
     }
 
     private void HandleRotation()
