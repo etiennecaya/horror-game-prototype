@@ -104,5 +104,6 @@ public class PressurePlate : MonoBehaviour
     private void Start() 
     {
         _audioSource = GetComponent<AudioSource>();
+        _doorReachedBottom = true;
     }
 }
