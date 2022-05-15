@@ -7,6 +7,7 @@ public class MainMenuManager : MonoBehaviour
 {
     public GameObject FlashLightManager = null;
     public GameObject MainMenuCanvas = null;
+    public PlayerController PlayerController = null;
     private AudioSource _audioSource;
     [SerializeField] private AudioClip _mainMenuMusic = null;
     [SerializeField] private AudioClip _gameplayMusic = null;
@@ -25,10 +26,17 @@ public class MainMenuManager : MonoBehaviour
         MainMenuCanvas.SetActive(false);
         FlashLightManager.SetActive(true);
         CameraManager.Instance.ActivateGamePlayCamera();
+        StartCoroutine(ActivePlayerController());
    }
    public void ExitGame()
    {
        Application.Quit();
+   }
+
+   private IEnumerator ActivePlayerController()
+   {
+       yield return new WaitForSeconds(2);
+       PlayerController.ActivateInputs();
    }
 
    

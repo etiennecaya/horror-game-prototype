@@ -111,11 +111,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _rawInputMovement.y = _gravity * Time.deltaTime;
+            _rawInputMovement.y += _gravity * Time.deltaTime;
         }
     }
 
-    private void OnEnable() 
+    public void ActivateInputs()
     {
         _input.PlayerControls.Enable();
     }
@@ -135,6 +135,8 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.LightCone.SetActive(false);
         }
     }
+
+    
 
     // IN CASE WE NEED TO SWTICH ACTION MAPS
     /*
