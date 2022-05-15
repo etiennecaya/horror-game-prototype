@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 125, y: -50}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5669668825978515027
 CanvasRenderer:
@@ -120,11 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d132331db0171b4997460870a0b9e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LightCone: {fileID: 0}
+  PlayerController: {fileID: 0}
   Battery: 1
   MaxBattery: 1
-  CurrentTime: 1
-  CountDown: 0
   PlayerCurrentHealth: 3
   PlayerMaxHealth: 3
   _hearts:
@@ -169,7 +167,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 50, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5669668826475254516
 CanvasRenderer:
@@ -348,8 +346,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 200, y: -50}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5669668827817174575
 CanvasRenderer:
