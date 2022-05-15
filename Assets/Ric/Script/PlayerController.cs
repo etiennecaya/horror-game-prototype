@@ -40,6 +40,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update() 
     {
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Defeated"))
+        {
+            return;
+        }
+
+
         if (_characterRotates)
         {
             HandleRotation(); 
@@ -87,14 +93,14 @@ public class PlayerController : MonoBehaviour
         nextMoveDirection = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0) * nextMoveDirection;
         if (_rawInputMovement != new Vector3(0,_rawInputMovement.y,0))
         {
-            _animator.SetInteger("State", 1);
+            _animator.SetBool("Walking", true);
             Vector3 lookAtDirection = transform.position + nextMoveDirection;
             lookAtDirection.y = transform.position.y;
             transform.LookAt(lookAtDirection);
         }
         else
         {
-            _animator.SetInteger("State", 0);
+            _animator.SetBool("Walking", false);
         }
 
 
@@ -122,6 +128,7 @@ public class PlayerController : MonoBehaviour
     {
         _input.PlayerControls.Enable();
     }
+
     private void OnDisable() 
     {
         _input.PlayerControls.Disable();

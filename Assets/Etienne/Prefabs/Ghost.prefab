@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 3940369442473645601}
   m_Layer: 0
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: GhostHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parent: {fileID: 6479317699579790715}
+  Damage: 1
 --- !u!1 &6479317699205499478
 GameObject:
   m_ObjectHideFlags: 0
