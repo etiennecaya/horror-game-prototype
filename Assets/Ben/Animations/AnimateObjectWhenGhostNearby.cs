@@ -47,7 +47,7 @@ public class AnimateObjectWhenGhostNearby : MonoBehaviour
             if (other.tag == "GhostSoftDetect") 
             {
             _nbSoftDetect++;
-        }
+            }
         
     }
     private void OnTriggerExit(Collider other)
