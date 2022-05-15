@@ -56,8 +56,6 @@ GameObject:
   - component: {fileID: 7719208179148645346}
   - component: {fileID: 7729541083663940412}
   - component: {fileID: 7737829047269389594}
-  - component: {fileID: 6187249798207204766}
-  - component: {fileID: 253910508704245769}
   - component: {fileID: 6507906773543929023}
   m_Layer: 0
   m_Name: Menacing_Eye
@@ -131,38 +129,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6187249798207204766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7725664877989187396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e510f9994f719c948b2078cf295db140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!95 &253910508704245769
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7725664877989187396}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e847c7667050b16479dcb0d63c0eae2c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &6507906773543929023
 BoxCollider:
   m_ObjectHideFlags: 0
