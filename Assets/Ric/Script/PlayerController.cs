@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _rawInputMovement;
     [SerializeField] private float _moveSpeed = 1f;
-    [SerializeField] private float _runningspeed = 1f;
     [SerializeField] private float _rotationSpeed = 1f;
     [SerializeField] private float _groundedGravity = -0.5f;
     [SerializeField] private float _gravity = -9.8f;

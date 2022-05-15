@@ -8,10 +8,14 @@ public class FlashlightManager : MonoBehaviour
    public static FlashlightManager Instance;
    public PlayerController PlayerController = null;
    private AudioSource _audiosource = null;
-   public int Battery = 1;
-   public int MaxBattery = 1;
-   //public float CurrentTime = 1f;
-   //public bool CountDown = false;
+
+   [Header ("Battery Variables")]
+   public Image BatteryBar = null;
+   [SerializeField]private float _currentBattery = 1;
+   [SerializeField]private float _MaxBattery = 100;
+   [Range (0.1f,1)]
+   public float BatteryDrainer = 1;
+   public float LerpSpeed;
    [Header ("Health Variables")]
    public int PlayerCurrentHealth = 1;
    public int PlayerMaxHealth = 1;
@@ -37,6 +41,7 @@ public class FlashlightManager : MonoBehaviour
     private void Start() 
     {
         PlayerCurrentHealth = PlayerMaxHealth;
+        _currentBattery = _MaxBattery;
         PlayerController.ActivateInputs();
         UpdateHealth();
     }
@@ -46,14 +51,37 @@ public class FlashlightManager : MonoBehaviour
         _audiosource.Play();
     }
 
-    public void BatteryDrainOverTime()
-    {
-        
-    }
 
     private void Update() 
     {
-        //CurrentTime = CountDown ? CurrentTime -= Time.deltaTime : CurrentTime += Time.deltaTime;
+        LerpSpeed = 3f * Time.deltaTime;
+        BatteryDrainOverTime();
+        BatteryBarFiller();        
+        ColorChanger();
+    }
+
+    private void BatteryBarFiller()
+    {
+        BatteryBar.fillAmount = Mathf.Lerp(BatteryBar.fillAmount,_currentBattery/_MaxBattery,LerpSpeed);
+    }
+
+    private void ColorChanger()
+    {
+        Color BatteryColor = Color.Lerp(Color.red,Color.green,_currentBattery/_MaxBattery);
+        BatteryBar.color = BatteryColor;
+    }
+
+    public void BatteryRegen(float BatteryPoints)
+    {
+        if (_currentBattery < _MaxBattery)
+        {
+            _currentBattery += BatteryPoints;
+        }
+    }
+
+    public void BatteryDrainOverTime()
+    {
+        _currentBattery -= Time.deltaTime;
     }
 
     public void TakeDamage(int amount)
