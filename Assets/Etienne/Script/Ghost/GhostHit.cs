@@ -5,6 +5,7 @@ using UnityEngine;
 public class GhostHit : MonoBehaviour
 {
     [SerializeField] private Ghost _parent;
+    public int Damage;
 
     private void OnTriggerEnter(Collider other)
     {

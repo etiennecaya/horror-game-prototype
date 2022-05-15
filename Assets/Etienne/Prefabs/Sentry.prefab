@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1768307466}
   m_Layer: 0
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: SentryHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parent: {fileID: 3596181867045464915}
+  Damage: 1
 --- !u!1 &3596181867045464909
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +208,7 @@ GameObject:
   - component: {fileID: 3596181867653343637}
   - component: {fileID: 3596181867653343638}
   m_Layer: 0
-  m_Name: hitbox
+  m_Name: CollisionBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

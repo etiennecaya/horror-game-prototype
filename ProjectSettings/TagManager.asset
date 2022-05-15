@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - FlashLightCone
   - Checkpoint
+  - GhostHitBox
+  - SentryHitBox
   layers:
   - Default
   - TransparentFX

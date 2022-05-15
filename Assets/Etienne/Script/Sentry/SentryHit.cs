@@ -5,6 +5,7 @@ using UnityEngine;
 public class SentryHit : MonoBehaviour
 {
     [SerializeField] private Sentry _parent;
+    public int Damage;
 
     private void OnTriggerEnter(Collider other)
     {
