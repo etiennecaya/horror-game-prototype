@@ -6,7 +6,7 @@ public class GhostTeleportState : GhostBaseState
 
     public override void EnterState(GhostStateManager manager)
     {
-        manager.Ghost.Agent.isStopped = false;
+        manager.Ghost.Agent.isStopped = true;
         //Get Furthest Spawn Point from Game Manager
         manager.Ghost.Animator.SetInteger("State", 3);
     }

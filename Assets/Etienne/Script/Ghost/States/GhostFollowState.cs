@@ -26,14 +26,19 @@ public class GhostFollowState : GhostBaseState
             manager.SwitchState(manager.AttackState);
         }
 
+        if (manager.Ghost.IsAttacked)
+        {
+            manager.SwitchState(manager.PanicState);
+        }
+
         if (manager.Ghost.Target == null)
         {
             manager.SwitchState(manager.RoamState);
         }
 
-        if (manager.Ghost.Health <= 0)
+        if (manager.Ghost.IsAttacked)
         {
-            manager.SwitchState(manager.DefeatState);
+            manager.SwitchState(manager.PanicState);
         }
     }
 }

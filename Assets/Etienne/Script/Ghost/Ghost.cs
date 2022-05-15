@@ -8,19 +8,18 @@ public class Ghost : MonoBehaviour
 {
     public int Health;
     public float AttackDistance;
+    public Animator Animator;
 
     [NonSerialized] public bool DidLastAttackHit;
-    [NonSerialized] public bool IsAttacked;
+    public bool IsAttacked;
     [NonSerialized] public Vector3 OriginalPosition;
     [NonSerialized] public NavMeshAgent Agent;
     [NonSerialized] public GameObject Target;
-    [NonSerialized] public Animator Animator;
     private GhostStateManager _stateManager;
 
     private void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
-        Animator = GetComponent<Animator>();
         _stateManager = new GhostStateManager(this);
         OriginalPosition = transform.position;
     }

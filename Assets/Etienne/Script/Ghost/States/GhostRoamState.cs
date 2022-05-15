@@ -26,9 +26,9 @@ public class GhostRoamState : GhostBaseState
             manager.SwitchState(manager.FollowState);
         }
 
-        if (manager.Ghost.Health <= 0)
+        if (manager.Ghost.IsAttacked)
         {
-            manager.SwitchState(manager.DefeatState);
+            manager.SwitchState(manager.PanicState);
         }
     }
 

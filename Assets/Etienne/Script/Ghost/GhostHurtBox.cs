@@ -5,7 +5,15 @@ using UnityEngine;
 public class GhostHurtBox : MonoBehaviour
 {
     [SerializeField] private Ghost _parent;
-    private void OnTriggerEnter(Collider other)
+
+    private void Update()
+    {
+        if (!GameManager.Instance.LightCone.activeSelf)
+        {
+            _parent.IsAttacked = false;
+        }
+    }
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("FlashLightCone"))
         {

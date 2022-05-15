@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
+    [SerializeField] private bool _activateInputsOnAwake;
 
     private PlayerInput _input;
     private CharacterController _characterController;
@@ -30,6 +31,11 @@ public class PlayerController : MonoBehaviour
         _input.PlayerControls.Movement.performed += OnMovement;
         _input.PlayerControls.Movement.canceled += OnMovement;
         _input.PlayerControls.ToggleFlashLight.started += OnToggleFlashLight;
+        if (_activateInputsOnAwake)
+        {
+            ActivateInputs();
+        }
+
     }
 
     private void Update() 

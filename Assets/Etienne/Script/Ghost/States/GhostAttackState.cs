@@ -54,10 +54,5 @@ public class GhostAttackState : GhostBaseState
         {
             manager.SwitchState(manager.RoamState);
         }
-
-       //StartCoroutine to Attack
-       //Once Finished Check where the player is
-       //If close enough, try attacking
-       //If too far, follow him
     }
 }
