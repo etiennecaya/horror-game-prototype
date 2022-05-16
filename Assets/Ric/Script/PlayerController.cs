@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
         FlashLightOn = !FlashLightOn;
         {
             TurnFlashLightOn();
+            UIManager.Instance.PlayFlashlightSound();
         }       
     }
 
