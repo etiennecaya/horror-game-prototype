@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Olivier/Scenes/OlivierTestScene.unity
     guid: f3bae3c920db6cc4fad2bb4b9de07f5d
+  - enabled: 1
+    path: Assets/Olivier/Scenes/EndGame.unity
+    guid: aab3138c92a5c9048842f5eefa15c414
   m_configObjects: {}
