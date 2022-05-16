@@ -10,6 +10,7 @@ public class SentryPatrolState : SentryBaseState
         manager.Sentry.Agent.isStopped = false;
         manager.Sentry.Agent.autoBraking = false;
         manager.Sentry.Animator.SetInteger("State", 1);
+        manager.Sentry.MovingSound.Play();
     }
 
     public override void UpdateState(SentryStateManager manager)
@@ -21,6 +22,7 @@ public class SentryPatrolState : SentryBaseState
 
         if(manager.Sentry.Target != null)
         {
+            manager.Sentry.MovingSound.Stop();
             manager.SwitchState(manager.AttackState);
         }
     }

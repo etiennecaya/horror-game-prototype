@@ -29,6 +29,7 @@ public class PlayerHurtBox : MonoBehaviour
         else if (other.CompareTag("Health") && UIManager.Instance.PlayerCurrentHealth != UIManager.Instance.PlayerMaxHealth)
         {
             GainHealth(other.GetComponent<HealthPickup>().HealthRestored);
+            Destroy(other.gameObject);
         }
     }
 

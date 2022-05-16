@@ -5,13 +5,4 @@ using UnityEngine;
 public class HealthPickup : MonoBehaviour
 {
     public int HealthRestored = 1;
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PlayerHurtBox") && UIManager.Instance.PlayerCurrentHealth != UIManager.Instance.PlayerMaxHealth)
-        {
-            Destroy(gameObject);
-        }
-    }
 }

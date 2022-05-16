@@ -9,6 +9,7 @@ public class Sentry : MonoBehaviour
     public int Health;
     public Transform[] PatrolPoints;
     public Animator Animator;
+    public AudioSource MovingSound;
 
     [NonSerialized] public bool DidLastAttackHit;
     [NonSerialized] public NavMeshAgent Agent;

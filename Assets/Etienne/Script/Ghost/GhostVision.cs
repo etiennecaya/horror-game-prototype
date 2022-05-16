@@ -7,6 +7,7 @@ public class GhostVision : MonoBehaviour
     [SerializeField] private Ghost _parent;
     [SerializeField] private float _visionAngle;
     private GameObject _target;
+    private float _angleToTarget;
 
     private void Update()
     {
@@ -14,7 +15,8 @@ public class GhostVision : MonoBehaviour
         {
             return;
         }
-        Vector3 directionToTarget = _target.transform.position - transform.position;
+        Vector3 directionToTarget = new Vector3(_target.transform.position.x,transform.position.y,_target.transform.position.z) - transform.position;
+        _angleToTarget = Vector3.Angle(directionToTarget, transform.forward);
 
         if (Vector3.Angle(directionToTarget, transform.forward) <= _visionAngle)
         {
