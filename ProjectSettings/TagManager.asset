@@ -13,6 +13,7 @@ TagManager:
   - Checkpoint
   - GhostHitBox
   - SentryHitBox
+  - Medkit
   layers:
   - Default
   - TransparentFX
