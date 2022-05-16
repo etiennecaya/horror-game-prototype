@@ -1,24 +1,32 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class GhostRoamState : GhostBaseState
 {
-    private float _roamDistance = 5f;
+    private int _nextPoint;
 
     public override void EnterState(GhostStateManager manager)
     {
         manager.Ghost.Agent.isStopped = false;
         manager.Ghost.Agent.updateRotation = true;
         manager.Ghost.Animator.SetInteger("State", 1);
-        manager.Ghost.Agent.SetDestination(GetRoamDestination(manager.Ghost.transform, _roamDistance));
+
+        for (int i = 0; i < manager.Ghost.RoamPoints.Length - 1; i++)
+        {
+            int rnd = Random.Range(i, manager.Ghost.RoamPoints.Length);
+            Transform tempGO = manager.Ghost.RoamPoints[rnd];
+            manager.Ghost.RoamPoints[rnd] = manager.Ghost.RoamPoints[i];
+            manager.Ghost.RoamPoints[i] = tempGO;
+        }
     }
 
     public override void UpdateState(GhostStateManager manager)
     {
         if (manager.Ghost.Agent.remainingDistance <= manager.Ghost.Agent.stoppingDistance && manager.Ghost.Agent.pathStatus == NavMeshPathStatus.PathComplete)
         {
-            manager.Ghost.Agent.SetDestination(GetRoamDestination(manager.Ghost.transform, _roamDistance));
+            GoToNextPoint(manager);
         }
 
         if(manager.Ghost.Target != null)
@@ -32,17 +40,15 @@ public class GhostRoamState : GhostBaseState
         }
     }
 
-    private Vector3 GetRoamDestination(Transform currentTransform, float maxDistance)
+    private void GoToNextPoint(GhostStateManager manager)
     {
+        if (manager.Ghost.RoamPoints.Length == 0)
+        {
+            return;
+        }
 
-        Vector3 backwardPos = currentTransform.right * -maxDistance;
-        Vector3 randomPos = Random.insideUnitSphere + backwardPos;
+        manager.Ghost.Agent.SetDestination(manager.Ghost.RoamPoints[_nextPoint].position);
 
-        NavMeshHit hit; // NavMesh Sampling Info Container
-
-        // from randomPos find a nearest point on NavMesh surface in range of maxDistance
-        while (!NavMesh.SamplePosition(randomPos, out hit, maxDistance, NavMesh.AllAreas)){ };
-
-        return hit.position;
+        _nextPoint = (_nextPoint + 1) % manager.Ghost.RoamPoints.Length;
     }
 }
