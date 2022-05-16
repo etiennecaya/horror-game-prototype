@@ -15,11 +15,14 @@ public class SentryIdleState : SentryBaseState
 
     public override void UpdateState(SentryStateManager manager)
     {
-        if (Time.time < _delayTime)
+        if(manager.Sentry.PatrolPoints.Length != 0)
         {
-            return;
+            manager.SwitchState(manager.PatrolState);
         }
 
-        manager.SwitchState(manager.PatrolState);
+        if(manager.Sentry.Target != null)
+        {
+            manager.SwitchState(manager.AttackState);
+        }
     }
 }

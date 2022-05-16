@@ -22,9 +22,9 @@ public class GhostVision : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerHurtBox"))
         {
             _target = other.gameObject;
         }
@@ -32,7 +32,7 @@ public class GhostVision : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerHurtBox"))
         {
             _target = null;
             _parent.Target = null;

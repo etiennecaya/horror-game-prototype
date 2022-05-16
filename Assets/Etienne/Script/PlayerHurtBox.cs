@@ -6,7 +6,7 @@ public class PlayerHurtBox : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private float _invincibilityDuration = 2f;
-    private int _currentHealth;
+    private int _currentHealth = 3;
 
     private void Start()
     {
@@ -44,7 +44,10 @@ public class PlayerHurtBox : MonoBehaviour
         {
             StartCoroutine(InvincibilityRoutine());
         }
-        UIManager.Instance.TakeDamage(value);
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.TakeDamage(value);
+        }
     }
 
     private void GainHealth(int value)
@@ -54,7 +57,10 @@ public class PlayerHurtBox : MonoBehaviour
         {
             _currentHealth = UIManager.Instance.PlayerMaxHealth;
         }
-        UIManager.Instance.GainHealth(value);
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.GainHealth(value);
+        }
     }
 
     private IEnumerator InvincibilityRoutine()

@@ -18,6 +18,13 @@ public class SentryAttackState : SentryBaseState
             return;
         }
         manager.Sentry.Target = null;
-        manager.SwitchState(manager.PatrolState);
+        if (manager.Sentry.PatrolPoints.Length != 0)
+        {
+            manager.SwitchState(manager.PatrolState);
+        }
+        else
+        {
+            manager.SwitchState(manager.IdleState);
+        }
     }
 }
