@@ -139,10 +139,15 @@ public class PlayerController : MonoBehaviour
         if (FlashLightOn)
         {
             GameManager.Instance.LightCone.SetActive(true);
+            FlashlightManager.Instance.FlashLightIconOff.enabled = false;
+            FlashlightManager.Instance.FlashLightIconOn.enabled = true;
+
         }
         else
         {
             GameManager.Instance.LightCone.SetActive(false);
+            FlashlightManager.Instance.FlashLightIconOff.enabled = true;
+            FlashlightManager.Instance.FlashLightIconOn.enabled = false;
         }
     }
 

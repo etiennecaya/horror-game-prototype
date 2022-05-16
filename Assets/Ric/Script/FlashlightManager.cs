@@ -12,6 +12,10 @@ public class FlashlightManager : MonoBehaviour
 
    [Header ("Battery Variables")]
    public Image BatteryBar = null;
+   public Image FlashLightIconOn = null;
+
+   public Image FlashLightIconOff = null;
+
    [System.NonSerialized]public float _currentBattery = 1;
    [System.NonSerialized]public float _MaxBattery = 100;
    [Range (0.1f,1)]
@@ -73,15 +77,19 @@ public class FlashlightManager : MonoBehaviour
 
     public void BatteryRegen(float BatteryPoints)
     {
-        if (_currentBattery < _MaxBattery)
-        {
             _currentBattery += BatteryPoints;
-        }
+            if(_currentBattery > _MaxBattery)
+            {
+                _currentBattery = _MaxBattery;
+            }
     }
 
     public void BatteryDrainOverTime()
     {
-        _currentBattery -= Time.deltaTime;
+        if (FlashLightIconOn.enabled == true)
+        {
+            _currentBattery -= Time.deltaTime;
+        }
     }
 
     public void TakeDamage(int amount)

@@ -4855,6 +4855,7 @@ GameObject:
   - component: {fileID: 88856763237578605}
   - component: {fileID: 88856763237578604}
   - component: {fileID: 5733819506615387223}
+  - component: {fileID: 3514465360446718188}
   m_Layer: 0
   m_Name: LaBatteriePickup
   m_TagString: Battery
@@ -4912,6 +4913,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8326669, y: 0.97906744, z: 0.6780381}
   m_Center: {x: 0.020400211, y: 0.26030654, z: -0.16098094}
+--- !u!114 &3514465360446718188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88856763237578603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f55e52a7d19a47b4e77c4c6140254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &88856763076344781
 PrefabInstance:
   m_ObjectHideFlags: 0
