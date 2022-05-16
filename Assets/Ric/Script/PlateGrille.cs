@@ -9,9 +9,8 @@ public class PlateGrille : MonoBehaviour
     [SerializeField] private AudioSource _pressurePlateAudioSource = null;
     [SerializeField] private AudioClip _movingSound = null;
     [SerializeField] private AudioClip _reachedEnd = null;
-    [SerializeField] private bool _playerIsOnPressurePlate = false;
-    [SerializeField] private bool _doorReachedBottom = false;
-    [SerializeField] private bool _doorReachedTop = false;
+    private bool _playerIsOnPressurePlate = false;
+    private bool _doorReachedTop = false;
 
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _maxHeight = 7.21f;
@@ -56,7 +55,6 @@ public class PlateGrille : MonoBehaviour
             _moveSpeed = 6;
             _doorTransform.position += new Vector3(0,_moveSpeed * Time.deltaTime,0);
             _audioSource.loop = true;
-            _doorReachedBottom = false;
         }
     }
 
