@@ -87,8 +87,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2687555574542656961, guid: e49e43fcb56d88a429026392c774336c,
         type: 3}
+      propertyPath: m_Range
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687555574542656961, guid: e49e43fcb56d88a429026392c774336c,
+        type: 3}
       propertyPath: m_Intensity
-      value: 10
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687555574542656961, guid: e49e43fcb56d88a429026392c774336c,
+        type: 3}
+      propertyPath: m_SpotAngle
+      value: 56.8
       objectReference: {fileID: 0}
     - target: {fileID: 2687555574542656961, guid: e49e43fcb56d88a429026392c774336c,
         type: 3}
