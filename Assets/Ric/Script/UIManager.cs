@@ -134,7 +134,7 @@ public class UIManager : MonoBehaviour
         if (PlayerCurrentHealth <= 0)
         {
             PlayerCurrentHealth = 0;
-            _leRespawn.Respawn();
+            //_leRespawn.Respawn();
         }
     }
 

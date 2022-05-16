@@ -15,6 +15,8 @@ public class PlateGrille : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _maxHeight = 7.21f;
     [SerializeField] Transform _doorTransform;
+    [SerializeField] GameObject _gameObjectToHide;
+    [SerializeField] GameObject[] _sentriesToActivate;
 
    private void Update() 
    {
@@ -33,6 +35,8 @@ public class PlateGrille : MonoBehaviour
             _audioSource.Play();
             _plateAnimator.SetBool("PlateIsPressed",true);
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            _gameObjectToHide.SetActive(false);
+            SpawnEnemies();            
         }
     }
     private void MoveDoorUp()
@@ -58,6 +62,13 @@ public class PlateGrille : MonoBehaviour
         }
     }
 
+    private void SpawnEnemies()
+   {
+       for (int i = 0; i < _sentriesToActivate.Length; i++)
+       {
+           _sentriesToActivate[i].SetActive(true);
+       }
+   }
     
 
     private void Start() 
