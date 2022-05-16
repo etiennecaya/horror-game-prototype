@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
    public static UIManager Instance;
    public PlayerController PlayerController = null;
    private AudioSource _audiosource = null;
-   [SerializeField] private CheckPointAndRespawn _leRespawn;
+   [SerializeField] private CheckpointSpawn _leRespawn;
 
    [Header ("Battery Variables")]
    public Image BatteryBar = null;
@@ -103,6 +103,7 @@ public class UIManager : MonoBehaviour
         if (PlayerCurrentHealth < 0)
         {
             PlayerCurrentHealth = 0;
+            StartCoroutine(_leRespawn.Respawn());
         }
         UpdateHealth();
     }
@@ -130,11 +131,6 @@ public class UIManager : MonoBehaviour
             {
                 _hearts[i].sprite = _emptyHeart;
             }
-        }
-        if (PlayerCurrentHealth <= 0)
-        {
-            PlayerCurrentHealth = 0;
-            //_leRespawn.Respawn();
         }
     }
 

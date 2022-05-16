@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnMovement(InputAction.CallbackContext context)
     {
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Respawn") || _animator.GetCurrentAnimatorStateInfo(0).IsName("Defeated"))
+        {
+            return;
+        }
         Vector2 inputMovement = context.ReadValue<Vector2>();
         _rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
         _rawInputMovement.Normalize();
@@ -64,6 +68,10 @@ public class PlayerController : MonoBehaviour
     private void OnToggleFlashLight(InputAction.CallbackContext context)
     {
         if (UIManager.Instance != null && UIManager.Instance._currentBattery <= 0)
+        {
+            return;
+        }
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Respawn") || _animator.GetCurrentAnimatorStateInfo(0).IsName("Defeated"))
         {
             return;
         }

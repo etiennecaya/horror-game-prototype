@@ -26,7 +26,7 @@ public class PlayerHurtBox : MonoBehaviour
         {
             LoseHealth(other.GetComponent<SentryHit>().Damage);
         }
-        else if (other.CompareTag("Health"))
+        else if (other.CompareTag("Health") && UIManager.Instance.PlayerCurrentHealth != UIManager.Instance.PlayerMaxHealth)
         {
             GainHealth(other.GetComponent<HealthPickup>().HealthRestored);
         }

@@ -9,7 +9,7 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PlayerHurtBox"))
+        if (other.CompareTag("PlayerHurtBox") && UIManager.Instance.PlayerCurrentHealth != UIManager.Instance.PlayerMaxHealth)
         {
             Destroy(gameObject);
         }
