@@ -94,7 +94,7 @@ public class PressurePlate : MonoBehaviour
         }
         else
         {
-            _moveSpeed = 0.25f;
+            _moveSpeed = 0.15f;
             _doorTransform.position += new Vector3(0,-_moveSpeed * Time.deltaTime,0);
             _audioSource.loop = true;
             _doorReachedTop = false;
