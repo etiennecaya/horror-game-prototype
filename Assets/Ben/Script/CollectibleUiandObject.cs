@@ -197,7 +197,6 @@ public class CollectibleUiandObject : MonoBehaviour
     IEnumerator Aouch()
     {
         yield return new WaitForSeconds(1f);
-        _isHurt = false;
     }
 
     

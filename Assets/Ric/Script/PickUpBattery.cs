@@ -6,9 +6,9 @@ public class PickUpBattery : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player") && FlashlightManager.Instance._currentBattery < FlashlightManager.Instance._MaxBattery)
+        if (other.CompareTag("Player") && UIManager.Instance._currentBattery < UIManager.Instance._MaxBattery)
         {
-            FlashlightManager.Instance._currentBattery = FlashlightManager.Instance._MaxBattery;
+            UIManager.Instance._currentBattery = UIManager.Instance._MaxBattery;
         }
     }
 }

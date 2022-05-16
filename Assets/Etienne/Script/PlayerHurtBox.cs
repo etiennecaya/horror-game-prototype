@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerHurtBox : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private int _maxHealth = 3;
     [SerializeField] private float _invincibilityDuration = 2f;
     private int _currentHealth;
 
     private void Start()
     {
-        _currentHealth = _maxHealth;
+        if(UIManager.Instance != null)
+        {
+            _currentHealth = UIManager.Instance.PlayerMaxHealth;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,9 +26,9 @@ public class PlayerHurtBox : MonoBehaviour
         {
             LoseHealth(other.GetComponent<SentryHit>().Damage);
         }
-        else if (other.CompareTag("Medkit"))
+        else if (other.CompareTag("Health"))
         {
-            //GainHealth(other.GetComponent<Medkit>().HealthRestored);
+            GainHealth(other.GetComponent<HealthPickup>().HealthRestored);
         }
     }
 
@@ -42,17 +44,17 @@ public class PlayerHurtBox : MonoBehaviour
         {
             StartCoroutine(InvincibilityRoutine());
         }
-        //UpdateUI
+        UIManager.Instance.TakeDamage(value);
     }
 
     private void GainHealth(int value)
     {
         _currentHealth += value;
-        if (_currentHealth > _maxHealth)
+        if (_currentHealth > UIManager.Instance.PlayerMaxHealth)
         {
-            _currentHealth = _maxHealth;
+            _currentHealth = UIManager.Instance.PlayerMaxHealth;
         }
-        //UpdateUI
+        UIManager.Instance.GainHealth(value);
     }
 
     private IEnumerator InvincibilityRoutine()

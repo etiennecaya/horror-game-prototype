@@ -48,8 +48,8 @@ public class CheckPointAndRespawn : MonoBehaviour
 
     private void RegenerateHealthAndBattery()
     {
-        FlashlightManager.Instance.PlayerCurrentHealth = FlashlightManager.Instance.PlayerMaxHealth;
-        FlashlightManager.Instance._currentBattery = FlashlightManager.Instance._MaxBattery;
+        UIManager.Instance.PlayerCurrentHealth = UIManager.Instance.PlayerMaxHealth;
+        UIManager.Instance._currentBattery = UIManager.Instance._MaxBattery;
     }
 
     private void TeleportCharacterToLastCheckpoint()

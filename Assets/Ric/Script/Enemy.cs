@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
   {
     if (other.CompareTag("Player"))
     {
-        FlashlightManager.Instance.TakeDamage(1);
+        UIManager.Instance.TakeDamage(1);
     }
   }
 }
