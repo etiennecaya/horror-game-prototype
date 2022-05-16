@@ -1674,6 +1674,16 @@ PrefabInstance:
       propertyPath: _doorAnimator
       value: 
       objectReference: {fileID: 847026303}
+    - target: {fileID: 4984781778723391708, guid: 2014583711cdc9b4ea7555ab0ec4f59d,
+        type: 3}
+      propertyPath: _audioClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984781778723391708, guid: 2014583711cdc9b4ea7555ab0ec4f59d,
+        type: 3}
+      propertyPath: _audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a191a640e7900b4ca1a3c8835283df5, type: 3}
     - target: {fileID: 4984781778874185569, guid: 2014583711cdc9b4ea7555ab0ec4f59d,
         type: 3}
       propertyPath: m_LocalScale.x

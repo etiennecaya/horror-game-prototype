@@ -9,6 +9,7 @@ public class PickUpBattery : MonoBehaviour
         if (other.CompareTag("Player") && UIManager.Instance._currentBattery < UIManager.Instance._MaxBattery)
         {
             UIManager.Instance._currentBattery = UIManager.Instance._MaxBattery;
+            Destroy(gameObject);
         }
     }
 }

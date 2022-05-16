@@ -63,10 +63,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnToggleFlashLight(InputAction.CallbackContext context)
     {
-       FlashLightOn = !FlashLightOn;
-       {
-           TurnFlashLightOn();
-       }       
+        if (UIManager.Instance != null && UIManager.Instance._currentBattery <= 0)
+        {
+            return;
+        }
+        FlashLightOn = !FlashLightOn;
+        {
+            TurnFlashLightOn();
+        }       
     }
 
     private void OnRun(InputAction.CallbackContext context)
@@ -153,6 +157,17 @@ public class PlayerController : MonoBehaviour
                 UIManager.Instance.FlashLightIconOff.enabled = true;
                 UIManager.Instance.FlashLightIconOn.enabled = false;
             }
+        }
+    }
+
+    public void OutOfBattery()
+    {
+        GameManager.Instance.LightCone.SetActive(false);
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.FlashLightIconOff.enabled = true;
+            UIManager.Instance.FlashLightIconOn.enabled = false;
+            FlashLightOn = false;
         }
     }
 

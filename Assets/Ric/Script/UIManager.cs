@@ -16,8 +16,8 @@ public class UIManager : MonoBehaviour
 
    public Image FlashLightIconOff = null;
 
-   [System.NonSerialized]public float _currentBattery = 1;
-   [System.NonSerialized]public float _MaxBattery = 100;
+   public float _currentBattery = 1;
+   [System.NonSerialized]public float _MaxBattery = 25;
    [Range (0.1f,1)]
    public float BatteryDrainer = 1;
    public float LerpSpeed;
@@ -90,17 +90,31 @@ public class UIManager : MonoBehaviour
         {
             _currentBattery -= Time.deltaTime;
         }
+        if(_currentBattery < 0)
+        {
+            PlayerController.OutOfBattery();
+            _currentBattery = 0;
+        }
     }
 
     public void TakeDamage(int amount)
     {
         PlayerCurrentHealth -= amount;
+        if (PlayerCurrentHealth < 0)
+        {
+            PlayerCurrentHealth = 0;
+        }
         UpdateHealth();
     }
     
     public void GainHealth(int amount)
     {
+        
         PlayerCurrentHealth += amount;
+        if(PlayerCurrentHealth > PlayerMaxHealth)
+        {
+            PlayerCurrentHealth = PlayerMaxHealth;
+        }
         UpdateHealth();
     }
 

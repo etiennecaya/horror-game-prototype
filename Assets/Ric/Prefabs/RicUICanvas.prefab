@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 5669668826409486187}
   - component: {fileID: 5669668826409486184}
   m_Layer: 0
-  m_Name: FlashlightManager
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   FlashLightIconOn: {fileID: 4245981225527180183}
   FlashLightIconOff: {fileID: 6024949272925350843}
   BatteryDrainer: 1
-  LerpSpeed: 3
+  LerpSpeed: 10
   PlayerCurrentHealth: 3
   PlayerMaxHealth: 3
   _hearts:
