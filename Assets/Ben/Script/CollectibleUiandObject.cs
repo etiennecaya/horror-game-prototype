@@ -15,7 +15,7 @@ public class CollectibleUiandObject : MonoBehaviour
     [SerializeField] private GameObject _heartTwo;
     [SerializeField] private GameObject _heartThree;
     public int Health = 3;
-    private bool _isHurt = false;
+    //private bool _isHurt = false;
 
     [Header("Battery")]
     [SerializeField] private float _maximumBattery;
