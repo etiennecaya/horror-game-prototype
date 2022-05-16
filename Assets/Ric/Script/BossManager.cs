@@ -6,6 +6,7 @@ public class BossManager : MonoBehaviour
 {
     public static BossManager Instance;
     private int _numberOfPlatesPressed = 0;
+    [SerializeField] private GameObject _boss;
 
     private void Awake() 
     {
@@ -30,6 +31,6 @@ public class BossManager : MonoBehaviour
 
     private void SpawnBoss()
     {
-        Debug.Log("COUCOU CHUIS LA!");
+        _boss.SetActive(true);
     }
 }
