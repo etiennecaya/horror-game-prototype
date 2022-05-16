@@ -6,6 +6,8 @@ public class DoorCloser : MonoBehaviour
 {  
     [SerializeField] private Animator _doorAnimator;
     [SerializeField] private GameObject _doorCollider;
+    [SerializeField] private GameObject _ceiling;
+    [SerializeField] private GameObject _directionalLight;
     [SerializeField] private AudioSource _audioSource;
     private bool _soundHavePlayed = false;
 
@@ -18,6 +20,7 @@ public class DoorCloser : MonoBehaviour
             _audioSource.Play();
             _soundHavePlayed = true;
             _doorCollider.GetComponent<BoxCollider>().enabled = true;
+            StartCoroutine(LightingFX());
         }        
     }
     private void OnTriggerExit(Collider other) 
@@ -26,5 +29,14 @@ public class DoorCloser : MonoBehaviour
         {
             _doorAnimator.SetBool("_Closing",false);
         }       
+    }
+
+    private IEnumerator LightingFX()
+    {
+        _ceiling.SetActive(true);
+        _directionalLight.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        _ceiling.SetActive(false);
+        _directionalLight.SetActive(false);
     }
 }
