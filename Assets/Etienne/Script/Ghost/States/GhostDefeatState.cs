@@ -7,7 +7,7 @@ public class GhostDefeatState : GhostBaseState
     {
         manager.Ghost.Agent.isStopped = true;
         manager.Ghost.Animator.SetInteger("State", 5);
-        //manager.Ghost.GetComponent<Collider>().enabled = false;
+        manager.Ghost.GhostDetectionPrefab.SetActive(false);
         manager.Ghost.Agent.enabled = false;
     }
 

@@ -9,6 +9,7 @@ public class Ghost : MonoBehaviour
     public int Health;
     public float AttackDistance;
     public Animator Animator;
+    public GameObject GhostDetectionPrefab;
     public Transform[] RoamPoints;
 
     [NonSerialized] public bool DidLastAttackHit;

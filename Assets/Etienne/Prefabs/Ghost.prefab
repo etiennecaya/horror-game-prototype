@@ -270,6 +270,7 @@ MonoBehaviour:
   Health: 1
   AttackDistance: 1.5
   Animator: {fileID: 4363089838331776141}
+  GhostDetectionPrefab: {fileID: 6930168946219048167}
   RoamPoints: []
 --- !u!1001 &1200899954956758948
 PrefabInstance:
@@ -689,6 +690,12 @@ PrefabInstance:
 --- !u!4 &6930168946219048164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3328725165777240404, guid: a8ace2d09cfc9b047aa9a255ed2dc7d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5629189568669031856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6930168946219048167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3328725165777240407, guid: a8ace2d09cfc9b047aa9a255ed2dc7d6,
     type: 3}
   m_PrefabInstance: {fileID: 5629189568669031856}
   m_PrefabAsset: {fileID: 0}
