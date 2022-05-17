@@ -265,6 +265,11 @@ PrefabInstance:
       objectReference: {fileID: 7180725580848104647}
     - target: {fileID: 3137619484858198680, guid: d6c1ca0f115f7374f9c7ed7fb59a9342,
         type: 3}
+      propertyPath: _groundedGravity
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137619484858198680, guid: d6c1ca0f115f7374f9c7ed7fb59a9342,
+        type: 3}
       propertyPath: _characterRotates
       value: 0
       objectReference: {fileID: 0}

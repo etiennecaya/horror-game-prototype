@@ -8,7 +8,7 @@ public class GhostAttackState : GhostBaseState
         manager.Ghost.Agent.isStopped = true;
         manager.Ghost.Agent.updateRotation = false;
         manager.Ghost.Animator.SetInteger("State", 2);
-
+        manager.Ghost.AttackSound.Play();
     }
 
     public override void UpdateState(GhostStateManager manager)
@@ -48,6 +48,7 @@ public class GhostAttackState : GhostBaseState
             else
             {
                 manager.Ghost.Animator.Play("Attacking");
+                manager.Ghost.AttackSound.Play();
             }
         }
         else

@@ -11,6 +11,8 @@ public class Ghost : MonoBehaviour
     public Animator Animator;
     public GameObject GhostDetectionPrefab;
     public Transform[] RoamPoints;
+    public AudioSource AttackSound;
+    public AudioSource DeathSound;
 
     [NonSerialized] public bool DidLastAttackHit;
     [NonSerialized] public bool IsAttacked;

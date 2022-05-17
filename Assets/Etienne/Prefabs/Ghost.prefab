@@ -118,8 +118,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 46744957460ffb44fbcc09249cdcd887, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -164,7 +164,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -339,8 +339,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 37eb1b46510ac534aa84bf132b59f284, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -385,7 +385,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -562,6 +562,8 @@ MonoBehaviour:
   Animator: {fileID: 4363089838331776141}
   GhostDetectionPrefab: {fileID: 6930168946219048167}
   RoamPoints: []
+  AttackSound: {fileID: 5871432462184004038}
+  DeathSound: {fileID: 4129885893113208583}
 --- !u!1001 &1200899954956758948
 PrefabInstance:
   m_ObjectHideFlags: 0

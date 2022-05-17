@@ -9,6 +9,7 @@ public class GhostDefeatState : GhostBaseState
         manager.Ghost.Animator.SetInteger("State", 5);
         manager.Ghost.GhostDetectionPrefab.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
         manager.Ghost.Agent.enabled = false;
+        manager.Ghost.DeathSound.Play();
     }
 
     public override void UpdateState(GhostStateManager manager)
