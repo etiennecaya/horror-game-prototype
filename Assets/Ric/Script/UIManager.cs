@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
    public Image FlashLightIconOff = null;
 
    public float _currentBattery = 1;
-   [System.NonSerialized]public float _MaxBattery = 25;
+   [System.NonSerialized]public float _MaxBattery = 100;
    [Range (0.1f,1)]
    public float BatteryDrainer = 1;
    public float LerpSpeed;

@@ -15,11 +15,11 @@ public class LightEvent : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            _lights.SetActive(true);
-            if(_audioSource.clip != null)
+            if (_audioSource.clip != null && !_lights.activeSelf)
             {
                 _audioSource.Play();
             }
+            _lights.SetActive(true);
         }
     }
 }
