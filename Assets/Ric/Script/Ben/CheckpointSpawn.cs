@@ -56,6 +56,7 @@ public class CheckpointSpawn : MonoBehaviour
     {
         _playerController.GetComponent<CharacterController>().enabled = false;
         transform.position = _lastCheckpoint;
+        _playerController._rawInputMovement = Vector3.zero;
         StartCoroutine(WakeUp());
     }
 
