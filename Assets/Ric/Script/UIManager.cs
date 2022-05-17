@@ -100,7 +100,7 @@ public class UIManager : MonoBehaviour
     public void TakeDamage(int amount)
     {
         PlayerCurrentHealth -= amount;
-        if (PlayerCurrentHealth < 0)
+        if (PlayerCurrentHealth <= 0)
         {
             PlayerCurrentHealth = 0;
             StartCoroutine(_leRespawn.Respawn());

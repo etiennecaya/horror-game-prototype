@@ -6,15 +6,7 @@ public class PlayerHurtBox : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private float _invincibilityDuration = 2f;
-    private int _currentHealth = 3;
 
-    private void Start()
-    {
-        if(UIManager.Instance != null)
-        {
-            _currentHealth = UIManager.Instance.PlayerMaxHealth;
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,29 +27,20 @@ public class PlayerHurtBox : MonoBehaviour
 
     private void LoseHealth(int value)
     {
-        _currentHealth -= value;
-        if(_currentHealth <= 0)
-        {
-            _currentHealth = 0;
-            _animator.Play("Defeated");
-        }
-        else
-        {
-            StartCoroutine(InvincibilityRoutine());
-        }
         if (UIManager.Instance != null)
         {
             UIManager.Instance.TakeDamage(value);
+            if(UIManager.Instance.PlayerCurrentHealth > 0)
+            {
+                StartCoroutine(InvincibilityRoutine());
+            }
         }
+
+
     }
 
     private void GainHealth(int value)
     {
-        _currentHealth += value;
-        if (_currentHealth > UIManager.Instance.PlayerMaxHealth)
-        {
-            _currentHealth = UIManager.Instance.PlayerMaxHealth;
-        }
         if (UIManager.Instance != null)
         {
             UIManager.Instance.GainHealth(value);
@@ -67,11 +50,11 @@ public class PlayerHurtBox : MonoBehaviour
     private IEnumerator InvincibilityRoutine()
     {
         _animator.Play("Invincible");
-        GetComponent<Collider>().enabled = false;
+        transform.localScale = Vector3.zero;
 
         yield return new WaitForSeconds(_invincibilityDuration);
 
         _animator.Play("Normal");
-        GetComponent<Collider>().enabled = true;
+        transform.localScale = Vector3.one;
     }
 }

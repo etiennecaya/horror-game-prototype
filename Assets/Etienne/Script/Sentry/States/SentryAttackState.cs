@@ -8,6 +8,7 @@ public class SentryAttackState : SentryBaseState
     {
         manager.Sentry.Agent.isStopped = true;
         manager.Sentry.Animator.SetInteger("State", 2);
+        manager.Sentry.AttackSound.Play();
     }
 
     public override void UpdateState(SentryStateManager manager)

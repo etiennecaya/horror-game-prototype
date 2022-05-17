@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         Vector2 inputMovement = context.ReadValue<Vector2>();
-        _rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
+        _rawInputMovement = new Vector3(inputMovement.x, _rawInputMovement.y, inputMovement.y);
         _rawInputMovement.Normalize();
     }
 
@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
         _input.PlayerControls.Disable();
     }
 
-    private void TurnFlashLightOn()
+    public void TurnFlashLightOn()
     {
         if (FlashLightOn)
         {

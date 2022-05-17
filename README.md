@@ -1,4 +1,4 @@
-# fps_game_prototype
+# horror_game_prototype
 
 Embark on a spooky horror thriller! 5+ minutes of gameplay.  
 This prototype was an assignment for Salim's class of the Independent Video Game Design AEC program at Dawson college.

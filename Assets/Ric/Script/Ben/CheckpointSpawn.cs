@@ -6,12 +6,13 @@ public class CheckpointSpawn : MonoBehaviour
 {
     private Vector3 _lastCheckpoint;
     [SerializeField] private GameObject[] _lesObjetsARespawnQuandOnMeurt;
-    private CharacterController _playerController;
+    private PlayerController _playerController;
     [SerializeField] private Animator _animator;
+    [SerializeField] private PlayerHurtBox _hurtBox;
 
     private void Start() 
     {
-        _playerController = GetComponent<CharacterController>();
+        _playerController = GetComponent<PlayerController>();
     }
 
 
@@ -25,6 +26,13 @@ public class CheckpointSpawn : MonoBehaviour
 
     public IEnumerator Respawn()
     {
+        _hurtBox.transform.localScale = Vector3.zero;
+        _animator.Play("Defeated");
+        if (_playerController.FlashLightOn)
+        {
+            _playerController.FlashLightOn = false;
+            _playerController.TurnFlashLightOn();
+        }
         yield return new WaitForSeconds(2.5f);
         //ReactivateCollectedItems();
         TeleportCharacterToLastCheckpoint();
@@ -40,22 +48,23 @@ public class CheckpointSpawn : MonoBehaviour
 
     private void RegenerateHealthAndBattery()
     {
-        UIManager.Instance.BatteryRegen(100);
+        UIManager.Instance.BatteryRegen(UIManager.Instance._MaxBattery);
         UIManager.Instance.GainHealth(3);
     }
 
     private void TeleportCharacterToLastCheckpoint()
     {
-        _playerController.enabled = false;
+        _playerController.GetComponent<CharacterController>().enabled = false;
         transform.position = _lastCheckpoint;
         StartCoroutine(WakeUp());
     }
 
     public IEnumerator WakeUp()
     {
+        _hurtBox.transform.localScale = Vector3.one;
         _animator.Play("Respawn");
-        yield return new WaitForSeconds(5.5f);
-        _playerController.enabled = true;
+        yield return new WaitForSeconds(5f);
+        _playerController.GetComponent<CharacterController>().enabled = true;
 
     }
 }
