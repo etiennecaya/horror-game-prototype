@@ -9,6 +9,7 @@ public class BossManager : MonoBehaviour
     public static BossManager Instance;
     private int _numberOfPlatesPressed = 0;
     [SerializeField] private GameObject _boss;
+    [SerializeField] private GameObject _lightToTurnOn;
     private bool _BossSpawned = false;
     private NavMeshAgent _agent = null;
     private AudioSource _audiosource = null;
@@ -39,6 +40,7 @@ public class BossManager : MonoBehaviour
         _boss.SetActive(true);
         _audiosource.Play();
         _BossSpawned = true;
+        _lightToTurnOn.SetActive(true);
     }
 
     private void Start() 

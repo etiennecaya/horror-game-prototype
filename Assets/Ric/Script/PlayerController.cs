@@ -116,8 +116,10 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("Walking", false);
         }
 
-
-        _characterController.Move(nextMoveDirection * _moveSpeed * Time.deltaTime);
+        if (_characterController.enabled)
+        {
+            _characterController.Move(nextMoveDirection * _moveSpeed * Time.deltaTime);
+        }
     }
 
     private void HandleRotation()

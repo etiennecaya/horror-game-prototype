@@ -17,6 +17,7 @@ public class PlateGrille : MonoBehaviour
     [SerializeField] Transform _doorTransform;
     [SerializeField] GameObject _gameObjectToHide;
     [SerializeField] GameObject[] _sentriesToActivate;
+    [SerializeField] GameObject _lightToTurnOff;
 
    private void Update() 
    {
@@ -36,7 +37,8 @@ public class PlateGrille : MonoBehaviour
             _plateAnimator.SetBool("PlateIsPressed",true);
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
             _gameObjectToHide.SetActive(false);
-            SpawnEnemies();            
+            SpawnEnemies();
+            TurnOffLights();
         }
     }
     private void MoveDoorUp()
@@ -69,6 +71,13 @@ public class PlateGrille : MonoBehaviour
            _sentriesToActivate[i].SetActive(true);
        }
    }
+    private void TurnOffLights()
+    {
+        if(_lightToTurnOff != null)
+        {
+            _lightToTurnOff.SetActive(false);
+        }
+    }
     
 
     private void Start() 
