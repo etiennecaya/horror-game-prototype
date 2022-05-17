@@ -5,7 +5,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private Animator _plateAnimator = null;
-    private AudioSource _audioSource = null;
+    [SerializeField] private AudioSource _movingDoorAudioSource = null;
     [SerializeField] private AudioSource _pressurePlateAudioSource = null;
     [SerializeField] private AudioClip _movingSound = null;
     [SerializeField] private AudioClip _reachedEnd = null;
@@ -35,8 +35,8 @@ public class PressurePlate : MonoBehaviour
         {
             _playerIsOnPressurePlate = true;
             _pressurePlateAudioSource.Play();
-            _audioSource.clip = _movingSound;
-            _audioSource.Play();
+            _movingDoorAudioSource.clip = _movingSound;
+            _movingDoorAudioSource.Play();
             _plateAnimator.SetBool("PlateIsPressed",true);                  
         }
     }
@@ -47,8 +47,8 @@ public class PressurePlate : MonoBehaviour
         {
             _playerIsOnPressurePlate = false;
             _pressurePlateAudioSource.Play();
-            _audioSource.clip = _movingSound;
-            _audioSource.Play();
+            _movingDoorAudioSource.clip = _movingSound;
+            _movingDoorAudioSource.Play();
             _plateAnimator.SetBool("PlateIsPressed",false);   
         }
     }
@@ -62,17 +62,17 @@ public class PressurePlate : MonoBehaviour
         if (_doorTransform.position.y >= _maxHeight)
         {   
             _moveSpeed = 0;
-            _audioSource.Stop();
+            _movingDoorAudioSource.Stop();
             _doorReachedTop = true; 
-            _audioSource.loop = false;
-            _audioSource.clip = _reachedEnd;
-            _audioSource.Play();       
+            _movingDoorAudioSource.loop = false;
+            _movingDoorAudioSource.clip = _reachedEnd;
+            _movingDoorAudioSource.Play();       
         }
         else
         {
             _moveSpeed = 3;
             _doorTransform.position += new Vector3(0,_moveSpeed * Time.deltaTime,0);
-            _audioSource.loop = true;
+            _movingDoorAudioSource.loop = true;
             _doorReachedBottom = false;
         }
     }
@@ -86,24 +86,23 @@ public class PressurePlate : MonoBehaviour
         if (_doorTransform.position.y <= _minHeight)
         {
             _moveSpeed = 0;
-            _audioSource.Stop();
+            _movingDoorAudioSource.Stop();
             _doorReachedBottom = true; 
-            _audioSource.loop = false;
-            _audioSource.clip = _reachedEnd;
-            _audioSource.Play();  
+            _movingDoorAudioSource.loop = false;
+            _movingDoorAudioSource.clip = _reachedEnd;
+            _movingDoorAudioSource.Play();  
         }
         else
         {
-            _moveSpeed = 0.15f;
+            _moveSpeed = 0.2f;
             _doorTransform.position += new Vector3(0,-_moveSpeed * Time.deltaTime,0);
-            _audioSource.loop = true;
+            _movingDoorAudioSource.loop = true;
             _doorReachedTop = false;
         }
     }
 
     private void Start() 
     {
-        _audioSource = GetComponent<AudioSource>();
         _doorReachedBottom = true;
     }
 }
